@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabla de Posiciones - Torneo Baloncesto 2025</title>
+    <style>
+        :root {
+            --champion: linear-gradient(135deg, #f5d742 0%, #e6b422 100%);
+            --top3: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+            --mid-table: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
+            --relegation: linear-gradient(135deg, #ff416c 0%, #ff4b2b 100%);
+            --shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #f8f9fa;
+            color: #333;
+            padding: 0;
+            margin: 0;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        header {
+            width: 100%;
+            background: linear-gradient(90deg, #1a2a6c, #b21f1f, #fdbb2d);
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+            margin-bottom: 2rem;
+            box-shadow: var(--shadow);
+        }
+
+        h1 {
+            margin: 0;
+            font-size: 2.5rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        h2 {
+            margin: 0.5rem 0 0;
+            font-weight: 300;
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1000px;
+            margin-bottom: 3rem;
+        }
+
+        .standings-table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+            overflow: hidden;
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+            background: white;
+        }
+
+        .standings-table thead th {
+            background: #2c3e50;
+            color: white;
+            padding: 1.2rem;
+            text-align: center;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+        }
+
+        .standings-table tbody tr {
+            transition: all 0.3s ease;
+        }
+
+        .standings-table tbody tr:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .standings-table td {
+            padding: 1rem;
+            text-align: center;
+            border-bottom: 1px solid #eee;
+            font-weight: 500;
+        }
+
+        .standings-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .champion {
+            background: var(--champion);
+            color: #000;
+            font-weight: bold;
+        }
+
+        .top3 {
+            background: var(--top3);
+            color: white;
+        }
+
+        .mid-table {
+            background: var(--mid-table);
+            color: white;
+        }
+
+        .relegation {
+            background: var(--relegation);
+            color: white;
+        }
+
+        .position {
+            font-weight: bold;
+            width: 50px;
+        }
+
+        .team-name {
+            text-align: left;
+            font-weight: 600;
+            padding-left: 1.5rem;
+        }
+
+        .positive {
+            color: #2ecc71;
+            font-weight: bold;
+        }
+
+        .negative {
+            color: #e74c3c;
+            font-weight: bold;
+        }
+
+        footer {
+            margin-top: auto;
+            width: 100%;
+            background: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 1.5rem 0;
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                width: 95%;
+            }
+            
+            .standings-table thead {
+                display: none;
+            }
+            
+            .standings-table tr {
+                display: block;
+                margin-bottom: 1rem;
+                border-radius: 8px;
+                overflow: hidden;
+                box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            }
+            
+            .standings-table td {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 0.8rem 1rem;
+                text-align: right;
+                border-bottom: 1px solid #eee;
+            }
+            
+            .standings-table td::before {
+                content: attr(data-label);
+                font-weight: bold;
+                margin-right: auto;
+                padding-right: 1rem;
+                text-align: left;
+            }
+            
+            .team-name {
+                text-align: right;
+                padding-left: 0;
+                justify-content: flex-end;
+            }
+            
+            .team-name::before {
+                content: "Equipo";
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Torneo de Baloncesto 2025</h1>
+        <h2>Tabla de Posiciones Oficial</h2>
+    </header>
+
+    <div class="container">
+        <table class="standings-table">
+            <thead>
+                <tr>
+                    <th>Pos</th>
+                    <th>Equipo</th>
+                    <th>PG</th>
+                    <th>PP</th>
+                    <th>Pts</th>
+                    <th>PF</th>
+                    <th>PC</th>
+                    <th>Dif</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="champion">
+                    <td class="position">1</td>
+                    <td class="team-name">SECTOR MERCADO</td>
+                    <td>4</td>
+                    <td>0</td>
+                    <td>8</td>
+                    <td>288</td>
+                    <td>254</td>
+                    <td class="positive">+34</td>
+                </tr>
+                <tr class="top3">
+                    <td class="position">2</td>
+                    <td class="team-name">STA PROFES</td>
+                    <td>3</td>
+                    <td>1</td>
+                    <td>7</td>
+                    <td>311</td>
+                    <td>288</td>
+                    <td class="positive">+23</td>
+                </tr>
+                <tr class="top3">
+                    <td class="position">3</td>
+                    <td class="team-name">CRUZ ROJA</td>
+                    <td>3</td>
+                    <td>1</td>
+                    <td>7</td>
+                    <td>285</td>
+                    <td>239</td>
+                    <td class="positive">+46</td>
+                </tr>
+                <tr class="top3">
+                    <td class="position">4</td>
+                    <td class="team-name">EMPRESA PRIVADA</td>
+                    <td>2</td>
+                    <td>2</td>
+                    <td>6</td>
+                    <td>265</td>
+                    <td>245</td>
+                    <td class="positive">+20</td>
+                </tr>
+                <tr class="mid-table">
+                    <td class="position">5</td>
+                    <td class="team-name">SALUD</td>
+                    <td>1</td>
+                    <td>3</td>
+                    <td>4</td>
+                    <td>323</td>
+                    <td>314</td>
+                    <td class="positive">+9</td>
+                </tr>
+                <tr class="mid-table">
+                    <td class="position">6</td>
+                    <td class="team-name">EDUC-ANDA</td>
+                    <td>1</td>
+                    <td>2</td>
+                    <td>4</td>
+                    <td>181</td>
+                    <td>203</td>
+                    <td class="negative">-22</td>
+                </tr>
+                <tr class="mid-table">
+                    <td class="position">7</td>
+                    <td class="team-name">ALCALDIA</td>
+                    <td>1</td>
+                    <td>2</td>
+                    <td>4</td>
+                    <td>197</td>
+                    <td>207</td>
+                    <td class="negative">-10</td>
+                </tr>
+                <tr class="relegation">
+                    <td class="position">8</td>
+                    <td class="team-name">JUSTICIA</td>
+                    <td>0</td>
+                    <td>4</td>
+                    <td>4</td>
+                    <td>212</td>
+                    <td>315</td>
+                    <td class="negative">-103</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <footer>
+        © 2025 E&H
+    </footer>
+</body>
+</html>
